@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: dispatch-server
+Version: 0.3.5
+Summary: A RPC server which follows JSONRPC 2.0 and allows for both client-to-server and server-to-client communication.
+Home-page: https://github.com/henryotoole/dispatch_server
+Author: Josh Reed (henryotoole)
+License: GNUv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*

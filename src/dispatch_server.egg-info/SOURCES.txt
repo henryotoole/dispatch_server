@@ -1,0 +1,17 @@
+setup.py
+src/dispatch/__init__.py
+src/dispatch/arg_types.py
+src/dispatch/dec_fcall.py
+src/dispatch/dispatcher.py
+src/dispatch/exceptions.py
+src/dispatch/responses.py
+src/dispatch_flask/__init__.py
+src/dispatch_flask/dispatcher_flask.py
+src/dispatch_flask/responses_flask.py
+src/dispatch_flask/routes.py
+src/dispatch_server.egg-info/PKG-INFO
+src/dispatch_server.egg-info/SOURCES.txt
+src/dispatch_server.egg-info/dependency_links.txt
+src/dispatch_server.egg-info/entry_points.txt
+src/dispatch_server.egg-info/not-zip-safe
+src/dispatch_server.egg-info/top_level.txt

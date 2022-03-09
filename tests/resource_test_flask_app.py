@@ -49,6 +49,17 @@ def register_dispatch(app):
 	def test_fn_dispatch_login(arg_int):
 		return True
 
+	# A login-wrapped function with two variables (this caused problems in the past)
+	@dispatch_callable_function(dispatcher, [T_INT, T_STRING])
+	def test_fn_2arg(arg_int, arg_string):
+		return True
+
+	# A login-wrapped function with two variables (this caused problems in the past)
+	@dispatch_callable_function(dispatcher, [T_INT, T_STRING])
+	@login_required
+	def test_fn_dispatch_login_2arg(yyyyarg_int, yyyyarg_string):
+		return True
+
 	# This function will place a foreign call to function 'test_foreign_function(1)' of the originating client
 	@dispatch_callable_function(dispatcher)
 	def test_fn_dispatch_foreign_call():
