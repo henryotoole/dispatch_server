@@ -1,3 +1,5 @@
+LICENSE
+README.md
 setup.py
 src/dispatch/__init__.py
 src/dispatch/arg_types.py
@@ -12,6 +14,8 @@ src/dispatch_flask/routes.py
 src/dispatch_server.egg-info/PKG-INFO
 src/dispatch_server.egg-info/SOURCES.txt
 src/dispatch_server.egg-info/dependency_links.txt
-src/dispatch_server.egg-info/entry_points.txt
 src/dispatch_server.egg-info/not-zip-safe
+src/dispatch_server.egg-info/requires.txt
 src/dispatch_server.egg-info/top_level.txt
+tests/test_dispatch.py
+tests/test_dispatch_flask.py

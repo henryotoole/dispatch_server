@@ -15,7 +15,7 @@ import urllib
 from werkzeug.wrappers import Response
 
 # Base python
-import simplejson as sjson
+import json
 
 def register_routes(app, dispatcher, base_url="/_dispatch"):
 	"""Register the routes needed for this dispatch server to function.
@@ -79,7 +79,7 @@ def register_routes(app, dispatcher, base_url="/_dispatch"):
 			permanent_data = urllib.parse.unquote(permanent_data) # Decode URI Component
 			
 			try:
-				permanent_data = sjson.loads(permanent_data) # Checks validitiy of json (ensure nothing malicious, at least)
+				permanent_data = json.loads(permanent_data) # Checks validitiy of json (ensure nothing malicious, at least)
 			except Exception: # The JSON String was not valid.
 				resp = DispatchResponseError.get_standard_error(
 					session_id,
@@ -98,7 +98,7 @@ def register_routes(app, dispatcher, base_url="/_dispatch"):
 		# Unpack the params
 		args = urllib.parse.unquote(arg_jsonstring) # Decode URI Component
 		try:
-			args = sjson.loads(args) # Checks validitiy of json (ensure nothing malicious, at least)
+			args = json.loads(args) # Checks validitiy of json (ensure nothing malicious, at least)
 		except Exception: # The JSON String was not valid.
 			resp = DispatchResponseError.get_standard_error(
 				session_id,

@@ -3,27 +3,12 @@
 #
 # Test all things relating to the base dispatch library.
 
-# FOR NOW we are going to use sys.path.insert here. When I get around to actually
-# releasing dispatch and henryotoole_utils, I'll need to remove this and use 'pip install -e .'
-# This will require giving both hutils and dispatch their own venv's...
-# https://stackoverflow.com/questions/50155464/using-pytest-with-a-src-layer
-# https://stackoverflow.com/questions/53378416/what-does-pipenv-install-e-do-and-how-to-use-it?noredirect=1&lq=1
-import sys
-sys.path.insert(0, "/the_root/projects/code_projects/dispatch/dispatch_server/src")
-
-# TEMPORARY, Remove after we proof the client
-import sys
-sys.path.insert(0, "/the_root/projects/code_projects/dispatch/dispatch_client_py")
-from dispatch_client_py.dispatch_client_test import DispatchClientTest, DispatchClientTestBlock
-from dispatch_client_py.exceptions import DispatchResponseErrorException, DispatchResponseTimeoutException
-from dispatch_client_py.exceptions import DispatchClientException, DispatchServerException
-
 # Our imports
-from henryotoole_utils.flask_test_server import FlaskTestServer
+from tests.resource_flask_test_lib import FlaskTestServer
 from tests.resource_test_flask_app import FlaskUser
-from dispatch import DispatchResponseResult, DispatchResponseError
-from dispatch import dispatch_callable_function
-from dispatch import T_STRING, T_INT, T_BOOL, T_FLOAT, T_JSON
+from dispatch_client_py.dispatch_client_test import DispatchClientTest, DispatchClientTestBlock
+from dispatch_client_py.exceptions import DispatchResponseErrorException
+from dispatch_client_py.exceptions import DispatchClientException
 
 from dispatch_flask import DispatcherFlask
 
@@ -119,6 +104,7 @@ def test_foreign_call(test_flask_app):
 	test_client = DispatchClientTest(base_url_port)
 	test_client.client_bind_function(foreign_call_function, 'test_foreign_function')
 	block = DispatchClientTestBlock('test_fn_dispatch_foreign_call', [], desired_result={})
+	
 	test_client.assert_block(block)
 
 	# We need to run a poll

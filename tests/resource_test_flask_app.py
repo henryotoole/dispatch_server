@@ -1,4 +1,4 @@
-# henryotoole_utils/tests/resource_test_flask_app.py
+# dispatch_server/tests/resource_test_flask_app.py
 # Josh Reed 2021
 #
 # This is a very basic flask application which is used to test the dispatch server.
@@ -7,9 +7,8 @@
 
 # Our code
 from dispatch_flask import DispatcherFlask
-from dispatch import Dispatcher, DispatchResponseResult, DispatchResponseError
 from dispatch import dispatch_callable_function
-from dispatch import T_STRING, T_INT, T_BOOL, T_FLOAT, T_JSON
+from dispatch import T_STRING, T_INT
 
 # Other libraries
 from redis import Redis
@@ -32,7 +31,12 @@ def setup():
 def register_dispatch(app):
 	"""Register the dispatcher instance. This will also register redis and some basic routes.
 	"""
+
 	redis_instance = Redis.from_url("redis://")
+
+	# Ensure a redis server is available.
+	redis_instance.set("_test_key", "val")
+
 	dispatcher = DispatcherFlask(app, redis_instance)
 
 	# Simple function which will return a value if the provided arg is a 2.
