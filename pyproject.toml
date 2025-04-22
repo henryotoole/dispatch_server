@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dispatch_server"
+version = "0.5.0"
+description = "A RPC server which follows JSONRPC 2.0 and allows for both client-to-server and server-to-client communication."
+dependencies = [
+	"flask",
+	"flask_login",
+	"redis"
+]
+authors = [
+	{name = "Josh Reed"}
+]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+classifiers = [
+	'Operating System :: POSIX :: Linux',
+	'Programming Language :: Python :: 3',
+	'Intended Audience :: Developers'
+]
+
+[project.urls]
+Repository = "https://github.com/henryotoole/restlink"
+
+[project.optional-dependencies]
+test = [
+	"pytest",
+	"hacutils @ git+https://github.com/henryotoole/hacutils"
+]

@@ -171,7 +171,7 @@ class Dispatcher:
 		n_required = fn_block.get('n_required')
 
 		# Ensure we've provided sufficient args to fill all required (non kw) args
-		if len(provided_args) != n_required:
+		if( n_required is not None) and (len(provided_args) != n_required):
 			return DispatchResponseError.get_standard_error(
 					session_id,
 					DispatchResponseError.EC_INVALID_PARAMS,
@@ -211,6 +211,8 @@ class Dispatcher:
 					)
 
 				args_to_process.append(provided_arg)
+		else:
+			args_to_process = provided_args
 
 		# Validation is complete. Now call the function with the required arguments.
 		try:
