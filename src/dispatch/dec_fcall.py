@@ -91,6 +91,7 @@ class dispatch_callable_function(object):
 				raise ValueError("Could not construct dispatch-callable functions because of argument mismatch.")
 		else:
 			arg_blocks = None
+			n_required = None
 		
 		@wraps(f)
 		def wrapped_f(*args):
